@@ -4,30 +4,35 @@ A real-time, context-aware safety and surveillance monitoring system that integr
 Traditional vision systems often look at isolated actions or standalone facial expressions in a vacuum. This system overcomes contextual blindness by running multiple specialized neural networks concurrently to assess an individual’s physical and emotional state via two parallel analytical pipelines:
 
 
-              ┌──────────────┐
-              │ Webcam Input │
-              └──────┬───────┘
-                     │
-     ┌───────────────┴───────────────┐
+                ┌──────────────┐
+                │ Webcam Input │
+                └──────┬───────┘
+                       │
+       ┌───────────────┴───────────────┐
+       ▼                               ▼
 ┌──────────────────┐           ┌───────────────────┐
 │  Face Detection  │           │  Pose Estimation  │
 └────────┬─────────┘           └─────────┬─────────┘
+▼                               ▼
 ┌──────────────────┐           ┌───────────────────┐
 │   Emotion CNN    │           │ Action Autoencoder│
 │   (7 Classes)    │           │    (6 Classes)    │
 └────────┬─────────┘           └─────────┬─────────┘
+▼                               ▼
 ┌──────────────────┐           ┌───────────────────┐
 │  Distress LSTM   │           │ Anomaly Detection │
 │ (Sequence Logic) │           │ (Recon. Error)    │
 └────────┬─────────┘           └─────────┬─────────┘
          │                               │
          └───────────────┬───────────────┘
+         ▼
               ┌──────────────────────┐
               │ Weighted Alert Engine│
               └──────────┬───────────┘
-             ┌──────────────────────┐
-             │ Web UI / Audio Alert │
-             └──────────────────────┘
+              ▼
+              ┌──────────────────────┐
+              │ Web UI / Audio Alert │
+              └──────────────────────┘
 
              
 
