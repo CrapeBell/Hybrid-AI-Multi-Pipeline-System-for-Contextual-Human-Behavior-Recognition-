@@ -2,6 +2,8 @@
 A real-time, context-aware safety and surveillance monitoring system that integrates concurrent computer vision pipelines and deep learning architectures to holistically analyze human physical actions and emotional states, issuing rapid distress alerts.
 # System Architecture
 Traditional vision systems often look at isolated actions or standalone facial expressions in a vacuum. This system overcomes contextual blindness by running multiple specialized neural networks concurrently to assess an individual’s physical and emotional state via two parallel analytical pipelines:
+
+
               ┌──────────────┐
               │ Webcam Input │
               └──────┬───────┘
@@ -26,6 +28,8 @@ Traditional vision systems often look at isolated actions or standalone facial e
              ┌──────────────────────┐
              │ Web UI / Audio Alert │
              └──────────────────────┘
+
+             
 
 **Pipeline A (Emotion & Temporal Distress):** Processes facial crops through a custom **Convolutional Neural Network (CNN)** trained on the **FER2013** dataset to identify instantaneous emotional vectors. These spatial probabilities are fed sequentially into a **Long Short-Term Memory (LSTM)** network to analyze temporal distress patterns over time.
 
